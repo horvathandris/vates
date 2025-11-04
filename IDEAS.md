@@ -7,6 +7,7 @@
 - switch statements for everything
 - arbitrary percision numbers (ints and floats)
 - piping syntax
+- pure functions evaluated at compile time
 
 ## Some examples
 
@@ -48,3 +49,17 @@ fn validate_email(
   Ok
 }
 ```
+
+### Ternary using switch
+
+fn basic(x: Int): Int {
+  when x % 2 == 0 {
+    True -> x + 2
+    False -> x * 2
+  }
+}
+```
+
+
+
+
