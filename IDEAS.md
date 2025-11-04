@@ -45,5 +45,6 @@ fn validate_email(
 ): Result<Unit, Unit> {
   ... regex.match(simple_email_regex, in: input)
   ...
+  Ok
 }
 ```
