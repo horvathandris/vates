@@ -30,7 +30,7 @@ fn sign(
   }
 }
 
-pub fn main(): Unit {
+pub fn main(): Effect<Unit> {
   sign(73)
   |> io.println
 }
@@ -52,6 +52,7 @@ fn validate_email(
 
 ### Ternary using switch
 
+```
 fn basic(x: Int): Int {
   when x % 2 == 0 {
     True -> x + 2
@@ -60,6 +61,23 @@ fn basic(x: Int): Int {
 }
 ```
 
+### Effects and pure FFIs
+
+Functions are pure by default. You can add FFIs and external implementations, but these are treated as impure by default, and will return `Effect<?>`.
+
+```
+@impl(javascript, "console", "log")
+fn println(value: String): Effect<Unit>
+```
+
+If you want to wire in an external implementation that you are 100% certain is pure, you can mark it as such.
+
+```
+@pure_impl(javascript, "Math", "sqrt")
+fn sqrt(x: Int): Float
+```
+
+Note to self -- should this be a warning, or auditable, or ...?
 
 
 
