@@ -20,9 +20,7 @@ type Sign {
   Zero
 }
 
-fn sign(
-  number: Int,
-): Sign {
+fn sign(number: Int): Sign {
   when number {
     x if x > 0 -> Positive
     x if x < 0 -> Negative
